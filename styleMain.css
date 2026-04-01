@@ -1,0 +1,289 @@
+
+/* --- БАЗОВЫЕ НАСТРОЙКИ (ТЕЛО И ФОН) --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background: #121212; 
+    color: rgb(246, 244, 246);
+    margin: 0; 
+    padding: 2vmin; 
+    background-image: linear-gradient(rgba(82, 3, 88, 0.237) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(72, 3, 104, 0.139) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: moveGrid 20s linear infinite;
+}
+
+@keyframes moveGrid {
+    from { background-position: 0 0; }
+    to { background-position: 0 1000px; }
+}           
+
+/* --- ЗАГОЛОВОК И ЛОГОТИП --- */
+h1 {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    gap: 2vmin; 
+    text-align: center; 
+    color: #870d7b; 
+    margin-bottom: 4vmin; 
+    font-size: clamp(24px, 6vmin, 48px);
+}
+
+.header-logo {
+    height: 1.2em; 
+    width: auto; 
+    object-fit: contain; 
+}
+
+/* --- СЛАЙДЕР КАТЕГОРИЙ --- */
+.category-slider-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%; 
+    max-width: 1000px;
+    margin: 0 auto 4vmin;
+    position: relative;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.cat-menu-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 12px;
+    padding: 15px 5px;
+    scrollbar-width: none; 
+    -webkit-overflow-scrolling: touch; 
+    scroll-snap-type: x mandatory; 
+}
+
+.cat-menu-slider::-webkit-scrollbar {
+    display: none; 
+}
+
+.cat-item {
+    flex: 0 0 auto; 
+    scroll-snap-align: start; 
+    background: #1e1e1e;
+    color: #c41c97;
+    border: 0.2vmin solid #870d7b;
+    padding: 12px 25px; 
+    border-radius: 12px;
+    font-size: clamp(14px, 4vw, 22px); 
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    text-align: center;
+    min-width: 100px; 
+}
+
+.slider-arrow {
+    background: #1e1e1e;
+    color: #c41c97;
+    border: 0.2vmin solid #870d7b;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0; 
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+ 
+
+/* --- ОБЩИЕ СТИЛИ СЕТКИ (БЕЗ ПРАВИЛ КОЛОНОК) --- */
+.grid { 
+    display: grid; 
+    justify-content: center; 
+    width: 95%; 
+    max-width: 1200px; 
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+
+.game-card { 
+    width: 100%;
+    background: #1e1e1e; 
+    border: 1px solid #333; 
+    border-radius: 8px; 
+    overflow: hidden; 
+    text-decoration: none; 
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s;
+    color: inherit;
+}
+
+
+.game-card:hover {
+    transform: translateY(-5px);
+    border-color: #c41c97;
+    box-shadow: 0 5px 15px rgba(196, 28, 151, 0.3);
+}
+
+.game-card img {
+    width: 100%; 
+    height: 100px; 
+    object-fit: cover; 
+    display: block;
+}
+
+.game-card h3 {
+    padding: 8px 5px;
+    margin: 0;
+    font-size: 13px;
+    text-align: center;
+    color: rgb(183, 37, 159);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* --- ПАГИНАЦИЯ --- */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 30px 0;
+}
+
+.page-btn {
+    background: #1e1e1e;
+    color: #c41c97;
+    border: 1px solid #870d7b;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.page-btn.active {
+    background: #870d7b;
+    color: white;
+    box-shadow: 0 0 10px rgba(135, 13, 123, 0.5);
+}
+
+.page-btn:hover:not(.active) {
+    background: #333;
+    border-color: #c41c97;
+}
+
+
+.banner-place {
+    width: 100%; /* Обязательно */
+    max-width: 728px;
+    min-height: 90px;
+    margin: 20px auto;
+    border: 1px dashed #4c093200; 
+    border-radius: 12px;
+    
+    /* Исправление ошибки */
+    display: block; /* По умолчанию лучше block для рекламы */
+    text-align: center; /* Центрирует инс-тег внутри */
+    overflow: hidden;
+    
+    /* Если очень нужен flex, добавь это: */
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+}
+
+/* Чтобы сам тег внутри блока не имел нулевой ширины */
+.banner-place ins {
+    display: block;
+    width: 100%;
+    min-width: 250px; /* Минимальный порог для рекламы */
+}
+ 
+/* ========================================= */
+/* --- АДАПТАЦИЯ (МЕДИА-ЗАПРОСЫ ДОЛЖНЫ БЫТЬ В САМОМ НИЗУ) --- */
+/* ========================================= */
+
+/* Планшеты и мелкие экраны */
+@media (max-width: 768px) {
+    .slider-arrow {
+        display: none;
+    }
+    .category-slider-wrapper {
+        padding: 0; 
+        width: 100%;
+    }
+    .cat-menu-slider {
+        padding-left: 15px; 
+        padding-right: 15px;
+    }
+}
+
+/* --- СТИЛИ ТОЛЬКО ДЛЯ ПК (Экран шире 481px) --- */
+@media (min-width: 581px) {
+    .grid {
+        /* На ПК используем твой любимый minmax, чтобы иконки были крупными */
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
+        gap: 15px; 
+        padding: 10px;
+    }
+
+    .game-card {
+        max-width: 200px; /* Ограничиваем, чтобы на огромных мониторах карточки не растягивались чересчур */
+    }
+
+    .game-card img {
+        height: 100px;
+    }
+
+    .game-card h3 {
+        font-size: 13px;
+        padding: 8px 5px;
+    }
+}
+
+
+/* --- СТИЛИ ТОЛЬКО ДЛЯ ТЕЛЕФОНОВ (Экран до 480px) --- */
+@media (max-width: 580px) {
+    body {
+        padding: 5px 0 !important;
+    }
+
+    .grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 8px !important; /* Чуть увеличим зазор для красоты */
+        padding: 8px !important;
+        width: 100% !important;
+    }
+
+    .game-card {
+        min-width: 0 !important;
+        /* Убираем жесткий min-height, пусть растет от контента */
+        min-height: auto !important; 
+        border-radius: 6px !important;
+    }
+
+    .game-card img {
+        /* ГЛАВНОЕ: Соотношение сторон 1.5 по высоте к 1 по ширине */
+        /* Если это не сработает в старом браузере, используем высоту в vmin */
+        aspect-ratio: 1.5 / 1 !important; 
+        height: auto !important; 
+        width: 100% !important;
+        object-fit: cover;
+    }
+
+    .game-card h3 {
+        font-size: 9px !important; /* Чуть увеличим, раз карточка стала больше */
+        padding: 5px 2px !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        background: #252525; /* Добавим легкий фон под текст для четкости */
+    }
+    
+    h1 { font-size: 20px !important; margin-bottom: 10px !important; }
+    .category-slider-wrapper { margin-bottom: 10px !important; }
+}

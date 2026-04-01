@@ -1,0 +1,292 @@
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    background-image: linear-gradient(rgba(82, 3, 88, 0.237) 1px, transparent 1px),linear-gradient(90deg, rgba(72, 3, 104, 0.139) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: moveGrid 20s linear infinite;
+    color: rgb(169, 7, 161);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+@keyframes moveGrid {
+    from { background-position: 0 0; }
+    to { background-position: 0 1000px; }
+}
+
+#game-container {
+    position: relative;
+    background: #000;
+    border: 3px solid #870d7b;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(135, 13, 123, 0.6);
+}
+
+@media (min-width: 851px) {
+    #game-container {
+        width: 800px;
+        height: 600px;
+    }
+}
+
+ 
+
+/* ИЗМЕНЕНО: Стили для кнопки полноэкранного режима на ПК */
+.fullscreen-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background: rgba(196, 28, 151, 0.4);
+    border: 2px solid #c41c97;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    opacity: 0; /* Скрыта по умолчанию */
+    pointer-events: none;
+}
+
+.fullscreen-btn:hover { background: #c41c97; transform: scale(1.1); }
+
+.fullscreen-btn::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    border: 2px solid white;
+}
+
+iframe { 
+    width: 100%; 
+    height: 100%; 
+    border: none; 
+    display: block;
+}
+
+.game-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(18, 18, 18, 0.98);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    transition: opacity 0.5s;
+}
+
+.play-btn {
+    background: #c41c97;
+    color: white;
+    border: none;
+    padding: 15px 50px;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 15px #c41c97;
+    transition: 0.3s;
+    margin-top: 20px;
+}
+
+.play-btn:hover { transform: scale(1.1); background: #ff00ff; }
+
+.loader {
+    display: none;
+    border: 5px solid #333;
+    border-top: 5px solid #760d79;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+.header { width: 100%; padding: 15px 0; background: rgba(30, 30, 30, 0.9); text-align: center; border-bottom: 2px solid #870d7b; }
+        
+/* ИЗМЕНЕНО: Back to Home теперь видна всегда (и на ПК, и на мобильных) в режиме описания */
+.back-link { 
+    color: #ff00ff; 
+    text-decoration: none; 
+    font-weight: bold; 
+    font-size: 18px; 
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.game-layout { display: flex; justify-content: center; gap: 20px; padding: 20px; width: 100%; max-width: 1400px; box-sizing: border-box; }
+.game-screen { flex: 1; display: flex; flex-direction: column; align-items: center; max-width: 800px; }
+
+.game-info {
+    width: 100%;
+    margin-top: 20px;
+    background: rgba(30, 30, 30, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #444;
+    box-sizing: border-box;
+}
+
+
+.banner-place {
+    width: 100%; /* Обязательно */
+    max-width: 728px;
+    min-height: 90px;
+    margin: 20px auto;
+    border: 1px dashed #4c093200; 
+    border-radius: 12px;
+    
+    /* Исправление ошибки */
+    display: block; /* По умолчанию лучше block для рекламы */
+    text-align: center; /* Центрирует инс-тег внутри */
+    overflow: hidden;
+    
+    /* Если очень нужен flex, добавь это: */
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+}
+
+/* Чтобы сам тег внутри блока не имел нулевой ширины */
+.banner-place ins {
+    display: block;
+    width: 100%;
+    min-width: 250px; /* Минимальный порог для рекламы */
+}
+
+
+.info-title { color: #9507bd; margin-bottom: 10px; font-size: 1.2em; font-weight: bold; }
+
+.side-ad { width: 160px; flex-shrink: 0; }
+.banner-ad { width: 100%; height: 600px; background: #1a1a1a00; border: 1px dashed #55555500; display: flex; align-items: center; justify-content: center; color: #55555505; border-radius: 10px; }
+
+.more-games-row { display: flex; justify-content: center; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
+.game-icon { width: 120px; border-radius: 10px; cursor: pointer; transition: 0.3s; border: 2px solid #333; }
+.game-icon:hover { border-color: #c41c97; transform: translateY(-5px); }
+
+/* ИЗМЕНЕНО: Кнопка выхода только во время запущенной игры на мобилках */
+#mobile-exit-game { 
+    display: none; 
+    position: fixed; 
+    top: 10px; 
+    left: 10px; 
+    z-index: 10001; 
+    background: rgba(196, 28, 151, 0.8); 
+    color: white; 
+    padding: 10px 18px; 
+    border-radius: 25px; 
+    font-weight: bold; 
+    border: none;
+}
+
+/* стили лайков */
+.like-button {
+    background: #1e1e1e;
+    color: #ff00ff;
+    border: 2px solid #870d7b;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.like-button.active {
+    background: #870d7b;
+    color: white;
+    box-shadow: 0 0 15px #ff00ff;
+} /* стили лайков */
+
+  
+
+/* ОБЪЕДИНЕННЫЙ МОБИЛЬНЫЙ РЕЖИМ (Смартфоны в портрете и широкие смартфоны в горизонте) */
+@media (max-width: 1100px), (max-height: 500px) {
+    /* Скрываем лишнее */
+    .side-ad, .fullscreen-btn { display: none !important; }
+    .game-layout { padding: 10px; flex-direction: column; }
+    .game-screen { max-width: 100vw; }
+
+    /* Превью (до игры) */
+    #game-container { 
+        width: 100vw; 
+        height: auto;
+        aspect-ratio: 16 / 9;
+        margin: 0 auto; 
+        border: none;
+    }
+
+    /* РЕЖИМ ИГРЫ (Когда нажали Play) */
+    body.is-playing { 
+        overflow: hidden;
+        background: #000 !important; 
+        height: 100vh;
+        height: 100dvh; 
+        width: 100vw;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Скрываем интерфейс сайта */
+    body.is-playing .header, 
+    body.is-playing .game-info, 
+    body.is-playing .more-games-row,
+    body.is-playing .banner-place { 
+        display: none !important; 
+    }
+
+    /* Контейнер игры на весь экран */
+    body.is-playing #game-container { 
+        position: fixed; 
+        top: 0; 
+        left: 0; 
+        width: 100vw; 
+        height: 100vh; 
+        height: 100dvh; 
+        z-index: 9999; 
+        aspect-ratio: auto !important; 
+    }
+
+    body.is-playing #game-container iframe {
+        width: 100% !important;
+        height: 100% !important;
+        border: none;
+        display: block;
+        object-fit: contain; 
+    }
+
+    /* Кнопка выхода */
+    body.is-playing #mobile-exit-game {
+        display: block !important;
+        position: fixed;
+        top: env(safe-area-inset-top, 10px);
+        left: env(safe-area-inset-left, 10px);
+        z-index: 10001;
+        background: rgba(196, 28, 151, 0.9);
+        padding: 8px 15px;
+        font-size: 14px;
+        border-radius: 20px;
+        color: white;
+        font-weight: bold;
+    }
+}
+
+/* ФИКС ДЛЯ ОЧЕНЬ НИЗКИХ ЭКРАНОВ (Landscape на любых телефонах) */
+@media (max-height: 450px) {
+    body.is-playing #mobile-exit-game {
+        padding: 5px 12px !important;
+        font-size: 12px !important;
+        top: 5px !important;
+    }
+}

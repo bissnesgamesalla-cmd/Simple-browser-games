@@ -1,0 +1,5 @@
+
+User-agent: *
+Allow: /
+
+Sitemap: https://simple-browser-games.netlify.app/sitemap.xml

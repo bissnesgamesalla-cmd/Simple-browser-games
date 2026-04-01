@@ -1,0 +1,117 @@
+<!--index.html-->
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    
+    <title>Simple Browser Games - Играть в бесплатные онлайн игры без регистрации</title>
+    <meta name="description"
+        content="Play the best free browser games: Лучшие бесплатные игры в браузере: играть онлайн на ПК и телефоне. Безкоштовні онлайн ігри для всіх! Огромный выбор пазлов, гонок и экшена.">
+    
+    <meta name="keywords"
+        content="браузерные игры, бесплатные игры, играть онлайн, мобильные игры, лучшие игры в браузере, онлайн игры без регистрации, безкоштовні ігри онлайн, грати в браузері, кращі онлайн ігри, ігри для дітей, browser games, free online games, play games no download, best web games, mobile friendly games, ping pong online, memory games, arcade games, CrazyGames, GameMonetize, Simple browser games, games, poki, gameDistribution, игры на двоих, пазлы онлайн, гонки в браузере, симуляторы, кликеры, игры для слабых пк, игры на весь экран, играть сейчас">
+    
+    
+    <meta property="og:image" content="https://simple-browser-games.netlify.app/favicon.webp">
+    <link rel="canonical" href="https://simple-browser-games.netlify.app/" />
+    <!--<link rel="icon" type="image/webp" href="https://simple-browser-games.netlify.app/favicon.webp">-->
+    <link rel="stylesheet" href="styleMain.css" />
+    <link rel="icon" type="image/png" sizes="96x96" href="https://simple-browser-games.netlify.app/icon.png">
+    <link rel="apple-touch-icon" href="https://simple-browser-games.netlify.app/icon.png">
+   
+    <!--мой айди от google-->
+    <!--<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8305980369054809" crossorigin="anonymous"></script>-->
+    
+    <!--айди от GameMontize-->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub=5519830896693885" crossorigin="anonymous"></script>
+    <!--<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4764333688337558" crossorigin="anonymous"></script>-->
+     
+    
+</head>
+
+<body>
+
+    <h1>
+        <img src="favicon.webp" alt="Логотип" class="header-logo">
+        <span>Simple browser games</span>
+    </h1>
+
+    <div class="categories-container">
+        <div class="category-slider-wrapper">
+            <button class="slider-arrow prev" onclick="scrollSlider(-1)">&#10094;</button>
+
+            <div id="cat-menu" class="cat-menu-slider">
+                <a href="javascript:void(0)" onclick="filterGames('all')" class="cat-item">All Games</a>
+                <a href="javascript:void(0)" onclick="filterGames('best')" class="cat-item">Best Games</a>
+                <a href="javascript:void(0)" onclick="filterGames('puzzle')" class="cat-item">Puzzle</a>
+                <a href="javascript:void(0)" onclick="filterGames('clicker')" class="cat-item">Clicker</a>
+                <a href="javascript:void(0)" onclick="filterGames('hypercasual')" class="cat-item">Hypercasual</a>
+                <a href="javascript:void(0)" onclick="filterGames('2 players')" class="cat-item">2 players</a>
+                <a href="javascript:void(0)" onclick="filterGames('sports')" class="cat-item">Sports</a>
+                <a href="javascript:void(0)" onclick="filterGames('3D')" class="cat-item">3D</a>
+                <a href="javascript:void(0)" onclick="filterGames('action')" class="cat-item">Action</a>
+                <a href="javascript:void(0)" onclick="filterGames('adventure')" class="cat-item">Adventure</a>
+                <a href="javascript:void(0)" onclick="filterGames('arcade')" class="cat-item">Arcade</a>
+                <a href="javascript:void(0)" onclick="filterGames('shooting')" class="cat-item">Shooting</a>
+                <a href="javascript:void(0)" onclick="filterGames('racing')" class="cat-item">Racing</a>
+                <a href="javascript:void(0)" onclick="filterGames('io')" class="cat-item">IO</a>
+            </div>
+
+            <button class="slider-arrow next" onclick="scrollSlider(1)">&#10095;</button>
+        </div>
+    </div>
+
+
+    <script src="Categories/IO/1/gamesDataIO.js"></script>
+    <script src="Categories/Racing/1/gamesDataRacing.js"></script>
+    <script src="Categories/Shooting/1/gameDataShooting.js"></script>
+    <script src="Categories/Shooting/1/gamesDataAdventure.js"></script>
+    <script src="Categories/Adventure/1/gamesDataAdventure.js"></script>
+    <script src="Categories/Action/1/gameDataAction.js"></script>
+    <script src="Categories/Hypercasual/1/gamesDataHypercasual.js"></script>
+    <script src="Categories/Puzzle/1/gamesDataPuzzle.js"></script>
+    <script src="Categories/2-players/1/gamesData_2_players.js"></script>
+    <script src="gameData.js"></script>
+    <script src="scriptMain.js"></script>
+
+
+    <div class="grid" id="games-grid">
+    </div>
+
+    <div id="pagination" class="pagination-container"></div>
+
+
+    <div class="banner-place">
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-5519830896693885" 
+            data-ad-slot="AUTO_ADS"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+    
+
+    <section style="max-width: 1000px; margin: 40px auto; padding: 20px; color: #aaa; font-size: 14px; line-height: 1.6; text-align: justify; border-top: 1px dashed #444;">
+    
+        <p>
+            Добро пожаловать на <strong>Simple Browser Games</strong> — ваш идеальный уголок для отдыха и развлечений! Мы собрали огромную коллекцию бесплатных онлайн-игр, в которые можно играть прямо в браузере без регистрации и скачивания. Наш портал оптимизирован как для ПК, так и для мобильных устройств, чтобы вы могли наслаждаться любимыми играми в любое время.
+        </p>
+        <p>
+        Любите напрячь извилины? Загляните в раздел <strong>Puzzle</strong> (Пазлы) и <strong>Hypercasual</strong>. Предпочитаете драйв? Вас ждут захватывающие <strong>Racing</strong> (Гонки) и динамичный <strong>Action</strong>. А для тех, кто не любит играть в одиночку, у нас есть отличная подборка игр в категории <strong>2 players</strong>. Играйте, побеждайте и возвращайтесь за новинками на Simple Browser Games!
+        </p>
+    </section>
+    
+    <footer style="margin-top: 50px; padding: 20px; text-align: center; border-top: 1px solid #333; color: #888;">
+        <p>&copy; 2026 Simple Browser Games | Все права защищены</p>
+        <p>
+            <a href="privacy.html" style="color: #888; text-decoration: none; font-size: 14px;">Privacy Policy (Политика конфиденциальности)</a>
+        </p>
+    </footer>
+
+</body>
+
+</html>
